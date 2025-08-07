@@ -27,17 +27,18 @@ NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for
 ## 📥 Step-by-Step Instructions
 
 
-### 1. Prepare the environment
+### 1. Prepare the working environment/dir
 
 ```bash
 sudo apt update && sudo apt upgrade
 ```
 
-### 2. Prepare the environment
 
 ```bash
 cd /opt/nvidia/deepstream/deepstream-7.1 
 ```
+
+Change to deepstream working dir 
 
 ### 3. Copy a sample video of your choice to your Linux Folder Assuming the sample video is under the 'Videos' Folder on your windows machine
 
@@ -58,7 +59,7 @@ Instructions:
 - Make sure to change the 'URI file' in each SOURCE section accordingly to where you place your video 
 - Also change the 'output-file' in the SINK1 section accordingly to where you want to save your video
 
-### 5. Check avilable models and trackers 
+### 5. Check available models and trackers 
 
 List avilable detectors
 
@@ -110,7 +111,7 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 
 As seen here, there is an engine file now, so whenever we run the pipeline, we don't have to built the engine from scratch.
 
-### 7. Edit the conifg_infer_primary again
+### 7. Edit the config_infer_primary again
 
 ```bash
 sudo nano config_infer_primary.txt
@@ -121,7 +122,7 @@ Instruction:
 - Comment OUT the 'onnx_file' in the PROPERTY section
 - UNCOMMENT the 'model-engine-file' in the PROPERTY section
 
-### 8. Run the pipeline and saved the video onto windows machine
+### 8. Run the pipeline and save the video onto the  windows machine
 
 ```bash
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
@@ -129,10 +130,10 @@ deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
 
 The process should load much faster since we don't have to built the engine file.
 
-LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out
-
+LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out<br>
 
 [OPTIONAL]
+🔻🔻🔻
 
 ```bash
 cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/output.mp4
