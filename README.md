@@ -1,7 +1,7 @@
 # DeepStream Pipeline Documentation
 
 This project sets up a simple people detection and tracking pipeline using NVIDIA DeepStream 7.1. It simulates four parallel camera feeds by duplicating a single video input across four sources. This is ideal for testing and reproducibility.
-
+<br>
 NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for building AI-powered video analytics applications.
 
 ---
@@ -13,6 +13,7 @@ NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for
 - ✅ Tiled display (2x2) showing 4 video feeds
 - ✅ Video output saved to file (MP4)
 - ✅ Runs on DeepStream 7.1 + WSL2 (Windows Subsystem for Linux)
+<br>
 
 ---
 
@@ -21,6 +22,7 @@ NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for
 ![Ubuntu Version](Images/ubuntu_version.png)
 
 ![Versions](Images/versions.png)
+<br>
 
 ---
 
@@ -32,15 +34,16 @@ NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for
 ```bash
 sudo apt update && sudo apt upgrade
 ```
+<br>
 
-Change to deepstream working dir 
+Change to DeepStream working dir 
 
 
 ```bash
 cd /opt/nvidia/deepstream/deepstream-7.1 
 ```
 
-### 2. Copy a sample video of your choice to your Linux Folder Assuming the sample video is under the 'Videos' Folder on your windows machine
+### 2. Copy a sample video of your choice from your windows machine to your Linux Folder (assuming the sample video is under the 'Videos' Folder on your windows machine)
 
 Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
 
@@ -61,17 +64,17 @@ Instructions:
 
 ### 4. Check available models and trackers 
 
-List avilable detectors
+List available detectors
 
 ```bash
 ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 ```
 
-![Avilable Models](Images/without_engine.png)
+![Available Models](Images/without_engine.png)
 
-There is no '.engine' file here, hence we build it.
+There is no '.engine' file here, hence we need to build it.<br>
 
-List avilable trackers
+List available trackers
 
 ```bash
 ls /opt/nvidia/deepstream/deepstream/lib/ 
@@ -93,13 +96,14 @@ Enable permission to write the built engine file into this dir first
 ```bash
 sudo chmod -R a+rw /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector
 ```
+<br>
 Then, run the pipeline
 
 ```bash
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
 ```
 
-You should be able to see the Deepstream interface. 
+You should be able to see the Deepstream interface. <br>
 
 After running the pipeline, check if the engine file is built
 
@@ -108,6 +112,7 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 ```
 
 ![Avilable Models](Images/with_engine.png)
+<br>
 
 As seen here, there is an engine file now, so whenever we run the pipeline, we don't have to built the engine from scratch.
 
@@ -128,7 +133,7 @@ Instruction:
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
 ```
 
-The process should load much faster since we don't have to built the engine file.
+The process should load much faster since we don't have to built the engine file.<br>
 
 LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out<br>
 
@@ -139,7 +144,7 @@ LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out<br>
 cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/output.mp4
 ```
 
-To save the outtputed video onto your windows machine
+To save the outtputed video onto your windows machine<br>
 
 ---
 
