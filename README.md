@@ -77,7 +77,7 @@ There is no '.engine' file here, hence we need to build it.<br>
 List available trackers
 
 ```bash
-ls /opt/nvidia/deepstream/deepstream/lib/ 
+ls /opt/nvidia/deepstream/deepstream-7.1/lib/ 
 ```
 
 ### 5. Create and edit the config_infer_primary.txt
