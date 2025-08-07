@@ -1,7 +1,7 @@
 # DeepStream Pipeline Documentation
 
-This project sets up a simple people detection and tracking pipeline using NVIDIA DeepStream 7.1. It simulates four parallel camera feeds by duplicating a single video input across four sources. This is ideal for testing and reproducibility.
-<br>
+This project sets up a simple people detection and tracking pipeline using NVIDIA DeepStream 7.1. It simulates four parallel camera feeds by duplicating a single video input across four sources. This is ideal for testing and reproducibility.<br>
+
 NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for building AI-powered video analytics applications.
 
 ---
@@ -144,7 +144,7 @@ LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out<br>
 cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/output.mp4
 ```
 
-To save the outtputed video onto your windows machine<br>
+To save the outtputed video onto your windows machine. (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) <br>
 
 ---
 
