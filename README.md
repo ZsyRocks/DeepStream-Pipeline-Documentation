@@ -33,14 +33,14 @@ NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for
 sudo apt update && sudo apt upgrade
 ```
 
+Change to deepstream working dir 
+
 
 ```bash
 cd /opt/nvidia/deepstream/deepstream-7.1 
 ```
 
-Change to deepstream working dir 
-
-### 3. Copy a sample video of your choice to your Linux Folder Assuming the sample video is under the 'Videos' Folder on your windows machine
+### 2. Copy a sample video of your choice to your Linux Folder Assuming the sample video is under the 'Videos' Folder on your windows machine
 
 Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
 
@@ -48,7 +48,7 @@ Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
 cp /mnt/c/Users/YourWindowsUser/Videos/myvideo.mp4 /home/YourLinuxUser/myvideo.mp4
 ```
 
-### 4. Create and edit the pipeline.txt 
+### 3. Create and edit the pipeline.txt 
 
 ```bash
 sudo nano pipeline.txt 
@@ -59,7 +59,7 @@ Instructions:
 - Make sure to change the 'URI file' in each SOURCE section accordingly to where you place your video 
 - Also change the 'output-file' in the SINK1 section accordingly to where you want to save your video
 
-### 5. Check available models and trackers 
+### 4. Check available models and trackers 
 
 List avilable detectors
 
@@ -77,7 +77,7 @@ List avilable trackers
 ls /opt/nvidia/deepstream/deepstream/lib/ 
 ```
 
-### 6. Create and edit the config_infer_primary.txt
+### 5. Create and edit the config_infer_primary.txt
 
 ```bash
 sudo nano config_infer_primary.txt 
