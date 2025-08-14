@@ -36,12 +36,15 @@ sudo apt update && sudo apt upgrade
 ```
 <br>
 
+<<<<<<< HEAD
 Install gedit which is a notepad like environment for Linux Ubuntu
 
 ```bash
 sudo apt install gedit -y
 ```
 
+=======
+>>>>>>> a76a0e011bf633be48ee298976ae799e161dcdae
 Change to DeepStream working dir 
 
 
@@ -60,7 +63,11 @@ cp /mnt/c/Users/YourWindowsUser/Videos/myvideo.mp4 /home/YourLinuxUser/myvideo.m
 ### 3. Create and edit the pipeline.txt 
 
 ```bash
+<<<<<<< HEAD
 sudo gedit pipeline.txt 
+=======
+sudo nano pipeline.txt 
+>>>>>>> a76a0e011bf633be48ee298976ae799e161dcdae
 ```
 
 Instructions:
@@ -89,7 +96,11 @@ ls /opt/nvidia/deepstream/deepstream-7.1/lib/
 ### 5. Create and edit the config_infer_primary.txt
 
 ```bash
+<<<<<<< HEAD
 sudo gedit config_infer_primary.txt 
+=======
+sudo nano config_infer_primary.txt 
+>>>>>>> a76a0e011bf633be48ee298976ae799e161dcdae
 ```
 
 Instructions:
@@ -125,7 +136,11 @@ As seen here, there is an engine file now, so whenever we run the pipeline, we d
 ### 7. Edit the config_infer_primary again
 
 ```bash
+<<<<<<< HEAD
 sudo gedit config_infer_primary.txt
+=======
+sudo nano config_infer_primary.txt
+>>>>>>> a76a0e011bf633be48ee298976ae799e161dcdae
 ```
 
 Instruction:
