@@ -1,8 +1,8 @@
 # DeepStream Pipeline Documentation
 
-This project sets up a simple people detection and tracking pipeline using NVIDIA DeepStream 7.1. It simulates four parallel camera feeds by duplicating a single video input across four sources. This is ideal for testing and reproducibility.<br>
-
 NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for building AI-powered video analytics applications.
+
+This project sets up a simple people detection and tracking pipeline using NVIDIA DeepStream 7.1. It simulates four parallel camera feeds by duplicating a single video input across four sources. This is ideal for testing and reproducibility.<br>
 
 ---
 
@@ -34,7 +34,6 @@ NVIDIA DeepStream is a high-performance streaming analytics toolkit designed for
 ```bash
 sudo apt update && sudo apt upgrade
 ```
-<br>
 
 Install gedit which is a notepad like environment for Linux Ubuntu
 
@@ -85,9 +84,8 @@ Instructions:
 
 ### 4. Prepare Custom detector and tracker
 
-Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
+Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly (assuming the custom detector is under the 'Downloads' Folder on your windows machine)
 
-(assuming the custom detector is under the 'Downloads' Folder on your windows machine)
 ```bash
 cp /mnt/c/Users/YourWindowsUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
 ```
@@ -100,7 +98,8 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 
 ![Available Detectors](Images/without_engine.png)
 
-You should be able to see the custom detector but there is no '.engine' file here, hence we need to build it.<br>
+You should be able to see the custom detector but there is no '.engine' file here, hence we need to build it.
+<br>
 
 List available trackers
 
@@ -119,15 +118,16 @@ sudo gedit config_infer_primary.txt
 ```
 
 Instructions:
-- Copy the contents of the 'config_infer_primary.txt' and paste it inside <br> 
-THe config_infer_primary.txt contains the configs of the detector <br>
+- Copy the contents of the 'config_infer_primary.txt' and paste it inside 
+<br>
 
 ```bash
 sudo gedit /opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/parser.cpp
 ```
 
 Instructions:
-- Copy the contents of the 'parser.cpp' and paste it inside <br>
+- Copy the contents of the 'parser.cpp' and paste it inside 
+<br>
 
 Then recompile the parser into a .so file
 
@@ -150,9 +150,12 @@ Then, run the pipeline
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
 ```
 
-You should be able to see the Deepstream interface. <br>
+You should be able to see the Deepstream interface like this 
+<br>
 
-After running the pipeline, check if the engine file is built
+![Interface](Images/deepstream_interface.png)
+
+Let the engine build and after the pipeline run finish, check if the engine file is built
 
 ```bash
 ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
@@ -182,18 +185,21 @@ Instruction:
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
 ```
 
-The process should load much faster since we don't have to built the engine file.<br>
+The process should load much faster since we don't have to built the engine file
+<br>
 
-LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out<br>
+LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out
+<br>
 
-[OPTIONAL]
+[OPTIONAL]<br>
 🔻🔻🔻
 
 ```bash
 cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/output.mp4
 ```
 
-To save the outtputed video onto your windows machine. (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) <br>
+To save the outtputed video onto your windows machine. (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
+<br>
 
 
 ### 9. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
@@ -209,9 +215,10 @@ Scroll down to the TRACKER section of the pipeline.txt until you see the highlig
 Instruction:
 - Only UNCOMMENT whichever tracker ll-config-file you want to use
 - Leave only ONE ll-config-file UNCOMMENTED and the rest Commented OUT
+- Then run the pipeline and save the video to your local
 <br>
 
-The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier but we do not have an engine file built. In order to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
+The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier but we do not have an engine file built. If you want to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
 
 ---
 
