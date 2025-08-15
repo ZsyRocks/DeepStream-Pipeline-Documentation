@@ -19,28 +19,35 @@ This project sets up a simple people detection and tracking pipeline using NVIDI
 
 ## 🎁 Prerequisites
 
+
 ### To install cuDNN for DeepStream[OPTIONAL]
 
+Install cuDNN 9.12 tar file using wget
 
-Extract or navigate to the cuDNN archive folder
+```bash
+wget https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-9.12.0.46_cuda12-archive.tar.xz
+```
+
+Extract the archive
+
+```bash
+tar -xvf cudnn-linux-x86_64-9.12.0.46_cuda12-archive.tar.xz
+```
+
+Navigate to the cuDNN archive folder
 
 ```bash
 cd cudnn-linux-x86_64-9.12.0.46_cuda12-archive
 ```
 
-Copy cuDNN headers to CUDA include directory\
+Copy cuDNN headers and libraries to CUDA include directory\
 
 ```bash
 sudo cp include/cudnn*.h /usr/local/cuda/include/
-```
-
-Copy cuDNN libraries to CUDA lib64 directory
-
-```bash
 sudo cp lib/libcudnn* /usr/local/cuda/lib64/
 ```
 
-Give read permissions
+Give read permissions to cuDNN
 
 ```bash
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
@@ -58,7 +65,7 @@ sudo ln -sf libcudnn_adv.so.9.12.0 libcudnn_adv.so.9
 sudo ln -sf libcudnn_adv.so.9 libcudnn_adv.so
 ```
 
-Update the linker cache
+And finally update the linker cache
 
 ```bash
 sudo ldconfig
@@ -73,7 +80,7 @@ sudo ldconfig
 ![Versions](Images/versions.png) 
 <br>
 ⬆️⬆️⬆️
-With cuDNN installed
+With cuDNN 9.12 installed
 <br>
 
 ---
