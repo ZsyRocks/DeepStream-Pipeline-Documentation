@@ -46,8 +46,8 @@ Change to DeepStream working DIR
 ```bash
 cd /opt/nvidia/deepstream/deepstream-7.1 
 ```
-
 <br>
+
 ### 2. Prepare sample video and reID model(for some tracking configs)
 
 Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
@@ -68,8 +68,8 @@ Downloading reID model .etlt file and saving it into the newly created DIR
 ```bash
 wget 'https://api.ngc.nvidia.com/v2/models/nvidia/tao/reidentificationnet/versions/deployable_v1.0/files/resnet50_market1501.etlt' -P /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
-
 <br>
+
 ### 3. Create and edit the pipeline.txt 
 
 ```bash
@@ -80,8 +80,8 @@ Instructions:
 - Copy the contents of the 'pipeline.txt' and paste it inside
 - Make sure to change the 'URI file' in each SOURCE section accordingly to where you place your video 
 - Also change the 'output-file' in the SINK1 section accordingly to where you want to save your video
-
 <br>
+
 ### 4. Prepare Custom detector and tracker
 
 Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly 
@@ -110,8 +110,8 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app
 ![Available Tracker Configs](Images/available_trackers.png)
 
 You should be able to see only 6 different config_tracker yml files
-
 <br>
+
 ### 5. Prepare the config_infer_primary.txt and parser
 
 ```bash
@@ -134,8 +134,8 @@ Then recompile the parser into a .so file
 ```bash
 sudo g++ -shared -fPIC -o /opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/libcustomparser.so "/opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/parser.cpp"   `pkg-config --cflags --libs gstreamer-1.0`   -I/opt/nvidia/deepstream/deepstream-7.1/include   -I/opt/nvidia/deepstream/deepstream-7.1/sources/includes   -I/usr/local/cuda/include
 ```
-
 <br>
+
 ### 6. Run the pipeline and build the engine file
 
 Enable permission to write the built engine file into this DIR first
@@ -165,8 +165,8 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 <br>
 
 As seen here, there is an engine file now, so whenever we run the pipeline, we don't have to rebuild the engine from scratch.
-
 <br>
+
 ### 7. Edit the config_infer_primary again
 
 ```bash
@@ -177,8 +177,8 @@ Instruction:
 - Comment OUT the 'infer_dims' in the PROPERTY section
 - Comment OUT the 'onnx_file' in the PROPERTY section
 - UNCOMMENT the 'model-engine-file' in the PROPERTY section
-
 <br>
+
 ### 8. Run the pipeline and save the video onto the windows machine
 
 ```bash
@@ -200,9 +200,28 @@ cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/outp
 
 To save the outtputed video onto your windows machine. 
 (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
-
 <br>
+
 ### 9. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
+
+Change reID model paths in NvDeepSORT.yml and NvDCF_accuracy.yml
+
+```bash
+sudo gedit /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDeepSORT.yml
+```
+
+![reID](Images/reID_paths.png)
+
+Make sure to change "/opt/nvidia/deepstream/deepstream/samples/models/Tracker/resnet50_market1501.etlt" TO "/opt/nvidia/deepstream/deepstream7.1/samples/models/Tracker/resnet50_market1501.etlt" for the reID paths
+<br>
+
+&
+
+```bash
+sudo gedit /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDCF_accuracy.yml
+```
+
+Now open the pipeline.txt
 
 ```bash
 sudo gedit pipeline.txt
@@ -218,7 +237,17 @@ Instruction:
 - Then run the pipeline and save the video to your local
 <br>
 
-The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier but we do not have an engine file built. If you want to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
+Check that the reID model exist
+
+```bash
+ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
+```
+
+![Tracker Configs](Images/reID_model.png)
+
+The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
+And as seen in the image we do not have an engine file built. 
+If you want to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
 
 ---
 
