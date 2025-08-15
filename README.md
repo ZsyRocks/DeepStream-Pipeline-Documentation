@@ -20,7 +20,7 @@ This project sets up a simple people detection and tracking pipeline using NVIDI
 ## 🎁 Prerequisites
 
 
-### To install cuDNN for DeepStream[OPTIONAL]
+### To install cuDNN for DeepStream [OPTIONAL]
 
 Install cuDNN 9.12 tar file using wget
 
@@ -278,7 +278,7 @@ sudo gedit /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/
 #### Updated path 
 /opt/nvidia/deepstream/deepstream7.1/samples/models/Tracker/resnet50_market1501.etlt
 <br>
-
+<br>
 Do the same for NvDCF_accuracy.yml
 
 ```bash
@@ -321,7 +321,7 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 - [NVIDIA DeepStream SDK Documentation](https://docs.nvidia.com/metropolis/deepstream/dev-guide/index.html)
 
 Notes:
-My Deepstream was installed from the tar package
-The ouput video using each tracker can be found inside the VIdeos folder in this repo
+- My Deepstream was installed from the tar package
+- The ouput video using each tracker can be found inside the VIdeos folder in this repo
 
 ---
