@@ -47,7 +47,7 @@ Change to DeepStream working DIR
 cd /opt/nvidia/deepstream/deepstream-7.1 
 ```
 
-
+<br>
 ### 2. Prepare sample video and reID model(for some tracking configs)
 
 Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
@@ -69,7 +69,7 @@ Downloading reID model .etlt file and saving it into the newly created DIR
 wget 'https://api.ngc.nvidia.com/v2/models/nvidia/tao/reidentificationnet/versions/deployable_v1.0/files/resnet50_market1501.etlt' -P /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
 
-
+<br>
 ### 3. Create and edit the pipeline.txt 
 
 ```bash
@@ -81,11 +81,12 @@ Instructions:
 - Make sure to change the 'URI file' in each SOURCE section accordingly to where you place your video 
 - Also change the 'output-file' in the SINK1 section accordingly to where you want to save your video
 
-
+<br>
 ### 4. Prepare Custom detector and tracker
 
-Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly (assuming the custom detector is under the 'Downloads' Folder on your windows machine)
+Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly 
 
+(assuming the custom detector is under the 'Downloads' Folder on your windows machine)
 ```bash
 cp /mnt/c/Users/YourWindowsUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
 ```
@@ -110,7 +111,7 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app
 
 You should be able to see only 6 different config_tracker yml files
 
-
+<br>
 ### 5. Prepare the config_infer_primary.txt and parser
 
 ```bash
@@ -119,7 +120,6 @@ sudo gedit config_infer_primary.txt
 
 Instructions:
 - Copy the contents of the 'config_infer_primary.txt' and paste it inside 
-<br>
 
 ```bash
 sudo gedit /opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/parser.cpp
@@ -135,7 +135,7 @@ Then recompile the parser into a .so file
 sudo g++ -shared -fPIC -o /opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/libcustomparser.so "/opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/parser.cpp"   `pkg-config --cflags --libs gstreamer-1.0`   -I/opt/nvidia/deepstream/deepstream-7.1/include   -I/opt/nvidia/deepstream/deepstream-7.1/sources/includes   -I/usr/local/cuda/include
 ```
 
-
+<br>
 ### 6. Run the pipeline and build the engine file
 
 Enable permission to write the built engine file into this DIR first
@@ -166,7 +166,7 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 
 As seen here, there is an engine file now, so whenever we run the pipeline, we don't have to rebuild the engine from scratch.
 
-
+<br>
 ### 7. Edit the config_infer_primary again
 
 ```bash
@@ -178,7 +178,7 @@ Instruction:
 - Comment OUT the 'onnx_file' in the PROPERTY section
 - UNCOMMENT the 'model-engine-file' in the PROPERTY section
 
-
+<br>
 ### 8. Run the pipeline and save the video onto the windows machine
 
 ```bash
@@ -198,10 +198,10 @@ LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out
 cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/output.mp4
 ```
 
-To save the outtputed video onto your windows machine. (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
+To save the outtputed video onto your windows machine. 
+(Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
+
 <br>
-
-
 ### 9. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
 
 ```bash
