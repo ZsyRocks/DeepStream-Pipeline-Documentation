@@ -17,14 +17,67 @@ This project sets up a simple people detection and tracking pipeline using NVIDI
 
 ---
 
+## 🎁 Prerequisites
+
+### To install cuDNN for DeepStream[OPTIONAL]
+
+
+Extract or navigate to the cuDNN archive folder
+
+```bash
+cd cudnn-linux-x86_64-9.12.0.46_cuda12-archive
+```
+
+Copy cuDNN headers to CUDA include directory\
+
+```bash
+sudo cp include/cudnn*.h /usr/local/cuda/include/
+```
+
+Copy cuDNN libraries to CUDA lib64 directory
+
+```bash
+sudo cp lib/libcudnn* /usr/local/cuda/lib64/
+```
+
+Give read permissions
+
+```bash
+sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+```
+
+Create essential symbolic links
+
+```bash
+cd /usr/local/cuda/lib64
+sudo ln -sf libcudnn.so.9.12.0 libcudnn.so.9
+sudo ln -sf libcudnn.so.9 libcudnn.so
+sudo ln -sf libcudnn_cnn.so.9.12.0 libcudnn_cnn.so.9
+sudo ln -sf libcudnn_cnn.so.9 libcudnn_cnn.so
+sudo ln -sf libcudnn_adv.so.9.12.0 libcudnn_adv.so.9
+sudo ln -sf libcudnn_adv.so.9 libcudnn_adv.so
+```
+
+Update the linker cache
+
+```bash
+sudo ldconfig
+```
+
+---
+
 ## 🛠️ Version Used 
 
 ![Ubuntu Version](Images/ubuntu_version.png)
 
-![Versions](Images/versions.png)
+![Versions](Images/versions.png) 
+<br>
+⬆️⬆️⬆️
+With cuDNN installed
 <br>
 
 ---
+
 
 ## 📥 Step-by-Step Instructions
 
@@ -231,13 +284,13 @@ Now open the pipeline.txt
 sudo gedit pipeline.txt
 ```
 
-Scroll down to the TRACKER section of the pipeline.txt until you see the highlighted section below which we can observe SIX different tracker configs
+Scroll down to the TRACKER section of the pipeline.txt until you see the highlighted section below which we can observe 6 different tracker configs
 
 ![Tracker Configs](Images/tracker_configs.png)
 
 Instruction:
 - Only UNCOMMENT whichever tracker "ll-config-file" you want to use
-- Leave only ONE "ll-config-file" UNCOMMENTED and the rest Commented OUT
+- Leave only 1 "ll-config-file" UNCOMMENTED and the rest Commented OUT
 - Then run the pipeline and save the video to your local
 <br>
 
@@ -262,5 +315,6 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 
 Notes:
 My Deepstream was installed from the tar package
+The ouput video using each tracker can be found inside the VIdeos folder in this repo
 
 ---
