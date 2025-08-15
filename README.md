@@ -212,10 +212,14 @@ sudo gedit /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/
 
 ![reID](Images/reID_paths.png)
 
-Make sure to change "/opt/nvidia/deepstream/deepstream/samples/models/Tracker/resnet50_market1501.etlt" TO "/opt/nvidia/deepstream/deepstream7.1/samples/models/Tracker/resnet50_market1501.etlt" for the reID paths
+#### Old path
+/opt/nvidia/deepstream/deepstream/samples/models/Tracker/resnet50_market1501.etlt
+
+#### Updated path 
+/opt/nvidia/deepstream/deepstream7.1/samples/models/Tracker/resnet50_market1501.etlt
 <br>
 
-&
+Do the same for NvDCF_accuracy.yml
 
 ```bash
 sudo gedit /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDCF_accuracy.yml
@@ -232,8 +236,8 @@ Scroll down to the TRACKER section of the pipeline.txt until you see the highlig
 ![Tracker Configs](Images/tracker_configs.png)
 
 Instruction:
-- Only UNCOMMENT whichever tracker ll-config-file you want to use
-- Leave only ONE ll-config-file UNCOMMENTED and the rest Commented OUT
+- Only UNCOMMENT whichever tracker "ll-config-file" you want to use
+- Leave only ONE "ll-config-file" UNCOMMENTED and the rest Commented OUT
 - Then run the pipeline and save the video to your local
 <br>
 
@@ -245,9 +249,9 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 
 ![Tracker Configs](Images/reID_model.png)
 
-The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
-And as seen in the image we do not have an engine file built. 
-If you want to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
+- The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
+- And as seen in the image we do not have an engine file built. 
+- If you want to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
 
 ---
 
