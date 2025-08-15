@@ -86,7 +86,7 @@ nvbuf-memory-type=0
 [primary-gie]
 enable=1
 gpu-id=0
-model-engine-file=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/resnet18_trafficcamnet_pruned.onnx_b4_gpu0_fp16.engine
+model-engine-file=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx_b4_gpu0_fp16.engine
 labelfile-path=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/labels.txt
 batch-size=4
 interval=0
@@ -103,7 +103,19 @@ enable=1
 tracker-width=640
 tracker-height=384
 ll-lib-file=/opt/nvidia/deepstream/deepstream-7.1/lib/libnvds_nvmultiobjecttracker.so
+
+# ll-config-file=/opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_IOU.yml
+
 ll-config-file=/opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDCF_perf.yml
+
+# ll-config-file=/opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDCF_max_perf.yml
+
+# ll-config-file=/opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDCF_accuracy.yml   # (NvDCF_accuracy uses a reID model which does not have an engine file built, need to install TAO-toolkit to build engine from the reID model .etlt file)
+
+# ll-config-file=/opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvSORT.yml
+
+# ll-config-file=/opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDeepSORT.yml   # (NVDeepSort uses a reID model which does not have an engine file built, need to install TAO-toolkit to build engine from the reID model .etlt file)
+
 gpu-id=0
 
 [tests]
