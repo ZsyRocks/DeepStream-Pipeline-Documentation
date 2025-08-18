@@ -291,6 +291,8 @@ Check that the reID model exist
 ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
 
+![Tracker Configs](Images/tracker_configs.png)
+
 Now open the pipeline.txt
 
 ```bash
@@ -299,7 +301,6 @@ sudo gedit pipeline.txt
 
 Scroll down to the TRACKER section of the pipeline.txt until you see the highlighted section below which we can observe 6 different tracker configs
 
-![Tracker Configs](Images/tracker_configs.png)
 
 Instruction:
 - Only UNCOMMENT whichever tracker "ll-config-file" you want to use
