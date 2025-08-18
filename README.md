@@ -334,8 +334,8 @@ The table below summarizes the FPS performance of different trackers tested on t
 | IOU Tracker      | 11.85 – 18.43   | 12.90            |
 | NvDCF_perf       | 12.12 – 17.86   | 13.07           |
 | NvDCF_max_perf   | 11.55 – 17.14   | 12.47            |
-| NvDCF_accuracy   | 11.83 – 15.67   | 12.03            |
+| NvDCF_accuracy (used default values)   | 11.83 – 15.67   | 12.03            |
 | NvSORT           | 11.91 – 18.97   | 13.04            |
-| NvDeepSORT       | 10.87 – 15.5   | 12.06            |
+| NvDeepSORT (used default values)      | 10.87 – 15.5   | 12.06            |
 
 ---
