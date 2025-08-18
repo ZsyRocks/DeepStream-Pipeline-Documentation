@@ -25,7 +25,7 @@ This project sets up a simple people detection and tracking pipeline using NVIDI
 Install cuDNN 9.12 tar file using wget
 
 ```bash
-wget https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-9.12.0.46_cuda12-archive.tar.xz
+sudo wget https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-9.12.0.46_cuda12-archive.tar.xz
 ```
 
 Extract the archive
@@ -120,13 +120,13 @@ cp /mnt/c/Users/YourWindowsUser/Videos/myvideo.mp4 /home/YourLinuxUser/myvideo.m
 Create a new DIR to place the reID model to be used for tracking later on
 
 ```bash
-sudo mkDIR /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
+sudo mkdir /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
 
 Downloading reID model .etlt file and saving it into the newly created DIR
 
 ```bash
-wget 'https://api.ngc.nvidia.com/v2/models/nvidia/tao/reidentificationnet/versions/deployable_v1.0/files/resnet50_market1501.etlt' -P /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
+sudo wget 'https://api.ngc.nvidia.com/v2/models/nvidia/tao/reidentificationnet/versions/deployable_v1.0/files/resnet50_market1501.etlt' -P /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
 <br>
 
@@ -311,7 +311,7 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 
 - The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
 - And as seen in the image we do not have an engine file built. 
-- If you want to build the engine we need to install TAO-toolkit to build it from the reID model(.etlt file)
+- If you want to build the engine we need to install TAO-toolkit to build the engine from the reID model(.etlt file)
 
 ---
 
@@ -320,8 +320,21 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 
 - [NVIDIA DeepStream SDK Documentation](https://docs.nvidia.com/metropolis/deepstream/dev-guide/index.html)
 
-Notes:
+### Notes:
 - My Deepstream was installed from the tar package
-- The ouput video using each tracker can be found inside the VIdeos folder in this repo
+- The ouput video using each tracker can be found inside the Videos folder in this repository
+
+#### Tracker Performance Comparison
+
+The table below summarizes the FPS performance of different trackers tested on the same video source.
+
+| Tracker          | FPS (instant)   | Overall average FPS |
+|-----------------|----------------|------------------|
+| IOU Tracker      | 8.23 – 17.06   | 11.68            |
+| NvDCF_perf       | 8.23 – 18.27   | 13.10            |
+| NvDCF_max_perf   | 7.61 – 17.19   | 12.87            |
+| NvDCF_accuracy   | 7.59 – 15.70   | 12.49            |
+| NvSORT           | 7.61 – 19.24   | 12.58            |
+| NvDeepSORT       | 7.60 – 15.82   | 11.90            |
 
 ---
