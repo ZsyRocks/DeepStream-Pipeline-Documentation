@@ -285,6 +285,12 @@ Do the same for NvDCF_accuracy.yml
 sudo gedit /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/config_tracker_NvDCF_accuracy.yml
 ```
 
+Check that the reID model exist
+
+```bash
+ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
+```
+
 Now open the pipeline.txt
 
 ```bash
@@ -297,21 +303,16 @@ Scroll down to the TRACKER section of the pipeline.txt until you see the highlig
 
 Instruction:
 - Only UNCOMMENT whichever tracker "ll-config-file" you want to use
-- Leave only 1 "ll-config-file" UNCOMMENTED and the rest Commented OUT
+- Leave only one "ll-config-file" UNCOMMENTED at a time and the rest Commented OUT
 - Then run the pipeline and save the video to your local
 <br>
 
-Check that the reID model exist
-
-```bash
-ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
-```
 
 ![Tracker Configs](Images/reID_model.png)
 
 - The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
 - And as seen in the image we do not have an engine file built. 
-- If you want to build the engine we need to install TAO-toolkit to build the engine from the reID model(.etlt file)
+- If you want to build the engine we need to install TAO-toolkit to build the engine from the reID model(.etlt file) otherwise it will run with default values or both NvDCF_accuracy and NvDeepSORT
 
 ---
 
@@ -328,13 +329,13 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 
 The table below summarizes the FPS performance of different trackers tested on the same video source.
 
-| Tracker          | FPS (instant)   | Overall average FPS |
+| Trackers          | FPS Range   | Average FPS |
 |-----------------|----------------|------------------|
-| IOU Tracker      | 8.23 – 17.06   | 11.68            |
-| NvDCF_perf       | 8.23 – 18.27   | 13.10            |
-| NvDCF_max_perf   | 7.61 – 17.19   | 12.87            |
-| NvDCF_accuracy   | 7.59 – 15.70   | 12.49            |
-| NvSORT           | 7.61 – 19.24   | 12.58            |
-| NvDeepSORT       | 7.60 – 15.82   | 11.90            |
+| IOU Tracker      | 11.85 – 18.43   | 12.90            |
+| NvDCF_perf       | 12.12 – 17.86   | 13.07           |
+| NvDCF_max_perf   | 11.55 – 17.14   | 12.47            |
+| NvDCF_accuracy   | 11.83 – 15.67   | 12.03            |
+| NvSORT           | 11.91 – 18.97   | 13.04            |
+| NvDeepSORT       | 10.87 – 15.5   | 12.06            |
 
 ---
