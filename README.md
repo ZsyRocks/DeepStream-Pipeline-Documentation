@@ -310,8 +310,6 @@ Instruction:
 <br>
 
 
-![Tracker Configs](Images/reID_model.png)
-
 
 - The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
 - And as seen in the image we do not have an engine file built. 
