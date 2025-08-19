@@ -291,7 +291,7 @@ Check that the reID model exist
 ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
 
-![Tracker Configs](Images/reID_model.png)
+![Tracker Configs](Images/reID_model.png) <br>
 
 Now open the pipeline.txt
 
@@ -311,6 +311,7 @@ Instruction:
 
 
 ![Tracker Configs](Images/reID_model.png)
+
 
 - The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
 - And as seen in the image we do not have an engine file built. 
