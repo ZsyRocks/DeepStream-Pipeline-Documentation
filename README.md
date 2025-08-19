@@ -291,7 +291,7 @@ Check that the reID model exist
 ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Tracker/
 ```
 
-![Tracker Configs](Images/reID_model.png) <br>
+![reID model](Images/reID_model.png) <br>
 
 Now open the pipeline.txt
 
@@ -309,11 +309,12 @@ Instruction:
 - Then run the pipeline and save the video to your local
 <br>
 
-
+![reID model](Images/reID_model.png)
 
 - The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
 - And as seen in the image we do not have an engine file built. 
 - If you want to build the engine we need to install TAO-toolkit to build the engine from the reID model(.etlt file) otherwise it will run with default values or both NvDCF_accuracy and NvDeepSORT
+
 
 ---
 
@@ -332,11 +333,11 @@ The table below summarizes the FPS performance of different trackers tested on t
 
 | Trackers          | FPS Range   | Average FPS |
 |-----------------|----------------|------------------|
-| IOU Tracker      | 11.85 – 18.43   | 12.90            |
-| NvDCF_perf       | 12.12 – 17.86   | 13.07           |
-| NvDCF_max_perf   | 11.55 – 17.14   | 12.47            |
-| NvDCF_accuracy (used default values)   | 11.83 – 15.67   | 12.03            |
-| NvSORT           | 11.91 – 18.97   | 13.04            |
-| NvDeepSORT (used default values)      | 10.87 – 15.5   | 12.06            |
+| IOU Tracker      | 13.22 – 16.87   | 13.6            |
+| NvDCF_perf       | 13.28 – 21.93   | 14.1          |
+| NvDCF_max_perf   | 13.27 – 18.57   | 13.9            |
+| NvDCF_accuracy(used default values)   | 13.20 – 15.71   | 13.5           |
+| NvSORT           | 13.29 – 20.12   | 14.0           |
+| NvDeepSORT(used default values)      | 13.23 – 16.96   | 13.7            |
 
 ---
