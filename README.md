@@ -92,7 +92,7 @@ With cuDNN 9.12 installed
 ### 1. Prepare the working environment/DIR
 
 ```bash
-sudo apt update && sudo apt upgrade
+sudo apt update
 ```
 
 Install gedit which is a notepad like environment for Linux Ubuntu
