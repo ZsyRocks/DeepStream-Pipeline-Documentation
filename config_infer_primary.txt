@@ -1,8 +1,8 @@
 [property]
 gpu-id=0
 net-scale-factor=0.00392156862745098
-onnx-file=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
-# model-engine-file=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx_b4_gpu0_fp16.engine
+# onnx-file=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
+model-engine-file=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx_b4_gpu0_fp16.engine
 labelfile-path=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/labels.txt
 batch-size=4
 process-mode=1
@@ -12,7 +12,7 @@ num-detected-classes=4
 interval=0
 gie-unique-id=1
 cluster-mode=2
-infer-dims=3;640;640            # depends on your model input size
+# infer-dims=3;640;640            # depends on your model input size
 custom-lib-path=/opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvdsinfer_customparser/libcustomparser.so
 parse-bbox-func-name=NvDsInferParseCustomEfficientDetTAO
  
