@@ -154,7 +154,7 @@ cp /mnt/c/Users/YourWindowsUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/de
 
 Manually build the engine file using trtexec
 
-``bash
+```bash
 /usr/src/tensorrt/bin/trtexec \
   --onnx=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx \
   --saveEngine=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx_b4_gpu0_fp16.engine \
