@@ -234,13 +234,7 @@ To save the outtputed video onto your windows machine.
 (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
 <br>
 
-### 7. Run the pipeline and save the video onto the windows machine
-
-```bash
-deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
-```
-
-### 8. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
+### 6. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
 
 Change reID model paths in NvDeepSORT.yml and NvDCF_accuracy.yml
 
