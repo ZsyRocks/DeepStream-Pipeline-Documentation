@@ -12,7 +12,7 @@ This project sets up a simple people detection and tracking pipeline using NVIDI
 - ✅ Object tracking using multiple trackers (IOU, NvSORT, NvDeepSORT and NvDCF)
 - ✅ Tiled display (2x2) showing 4 video feeds
 - ✅ Video output saved to file (MP4)
-- ✅ Runs on DeepStream 7.1 + WSL2 (Windows Subsystem for Linux)
+- ✅ Runs on DeepStream 7.1 + Ubuntu 22.04 on VM
 <br>
 
 ---
@@ -73,7 +73,7 @@ sudo ldconfig
 
 ---
 
-## 🛠️ Version Used 
+## 🛠️ Version Dependencies 
 
 ![Ubuntu Version](Images/ubuntu_version.png)
 
@@ -82,6 +82,7 @@ sudo ldconfig
 ⬆️⬆️⬆️
 With cuDNN 9.12 installed
 <br>
+![Nvidia Driver Version](Images/nvidia_driver.png) 
 
 ---
 
