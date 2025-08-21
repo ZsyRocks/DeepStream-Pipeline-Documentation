@@ -167,9 +167,9 @@ List available detectors
 ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 ```
 
-![Available Detectors](Images/without_engine.png)
+![Available Detectors](Images/with_engine.png)
 
-You should be able to see the custom detector but there is no '.engine' file here, hence we need to build it.
+You should be able to see the custom detector with the '.engine' file built.
 <br>
 
 List available trackers
@@ -206,15 +206,9 @@ sudo g++ -shared -fPIC -o /opt/nvidia/deepstream/deepstream-7.1/sources/libs/nvd
 ```
 <br>
 
-### 6. Run the pipeline and build the engine file
+### 6. Run the pipeline and save the video
 
-Enable permission to write the built engine file into this DIR first
-
-```bash
-sudo chmod -R a+rw /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector
-```
-<br>
-Then, run the pipeline
+Run the pipeline
 
 ```bash
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
@@ -224,24 +218,7 @@ You should be able to see the Deepstream interface like this
 <br>
 
 ![Interface](Images/deepstream_interface.png)
-
-Let the engine build and after the pipeline run finish, check if the engine file is built
-
-```bash
-ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
-```
-
-![Available Detectors](Images/with_engine.png)
 <br>
-
-As seen here, there is an engine file now, so whenever we run the pipeline, we don't have to rebuild the engine from scratch.
-<br>
-
-### 7. Run the pipeline and save the video onto the windows machine
-
-```bash
-deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
-```
 
 LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out
 <br>
@@ -257,7 +234,13 @@ To save the outtputed video onto your windows machine.
 (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
 <br>
 
-### 9. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
+### 7. Run the pipeline and save the video onto the windows machine
+
+```bash
+deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
+```
+
+### 8. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
 
 Change reID model paths in NvDeepSORT.yml and NvDCF_accuracy.yml
 
