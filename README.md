@@ -147,6 +147,7 @@ Instructions:
 Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly 
 
 (assuming the custom detector is under the 'Downloads' Folder on your windows machine)
+
 ```bash
 cp /mnt/c/Users/YourWindowsUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
 ```
