@@ -151,6 +151,15 @@ Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
 cp /mnt/c/Users/YourWindowsUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
 ```
 
+Manually build the engine file using trtexec
+
+``bash
+/usr/src/tensorrt/bin/trtexec \
+  --onnx=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx \
+  --saveEngine=/opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx_b4_gpu0_fp16.engine \
+  --fp16
+```
+
 List available detectors
 
 ```bash
@@ -227,26 +236,11 @@ ls -lh /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/
 As seen here, there is an engine file now, so whenever we run the pipeline, we don't have to rebuild the engine from scratch.
 <br>
 
-### 7. Edit the config_infer_primary again
-
-```bash
-sudo gedit config_infer_primary.txt
-```
-
-Instruction:
-- Comment OUT the 'infer_dims' in the PROPERTY section
-- Comment OUT the 'onnx_file' in the PROPERTY section
-- UNCOMMENT the 'model-engine-file' in the PROPERTY section
-<br>
-
-### 8. Run the pipeline and save the video onto the windows machine
+### 7. Run the pipeline and save the video onto the windows machine
 
 ```bash
 deepstream-app -c /opt/nvidia/deepstream/deepstream-7.1/pipeline.txt
 ```
-
-The process should load much faster since we don't have to built the engine file
-<br>
 
 LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out
 <br>
