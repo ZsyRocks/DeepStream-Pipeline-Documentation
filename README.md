@@ -304,7 +304,7 @@ In the STREAMUX section
 
 - Set the height and width of streammux to the input resolution.
 
-[Image]
+![STREAMMUX](Images/streammux.png)
 
 In this case, the input resolution of my video is 1270x720
 <br>
@@ -313,17 +313,17 @@ If you are streaming from live sources such as RTSP or from USB camera, set live
 
 In the OSD and TILED_DSISPLAY sections 
 
-- Disable them by setting 'enable' to 0
+- Disable them by setting 'enable=0'
 
-[Image]
+![OSD](Images/osd.png)
 &
-[Image]
+![TILED](Images/tiled.png)
 
 Finally, in the SINK0 and SINK1 sections
 
--  Set type=1 to make them fakesinks
+- Set 'type=1' to make them fakesinks
 
-[Image]
+![SINKS](Images/sinks.png)
 
 Disabling OSD means there will be no bounding boxes drawn,
 Choosing fakesinks will get rid of the deeepstream interface and get rid of the proccessed Frames
