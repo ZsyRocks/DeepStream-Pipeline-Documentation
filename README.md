@@ -11,7 +11,7 @@ This project sets up a simple people detection and tracking pipeline using NVIDI
 - ✅ Custom People detection using a custom model that takes 4 batches
 - ✅ Object tracking using multiple trackers (IOU, NvSORT, NvDeepSORT and NvDCF)
 - ✅ Tiled display (2x2) showing 4 video feeds
-- ✅ Video output saved to file (MP4)
+- ✅ Output sink to save the processed video (MP4)
 - ✅ Runs on DeepStream 7.1 + Ubuntu 22.04 on VM
 <br>
 
@@ -238,6 +238,7 @@ cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/outp
 ```
 
 To save the outtputed video onto your windows machine if on WSL (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly)
+<br>
 
 ### 8. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
 
@@ -291,6 +292,7 @@ Instruction:
 - The NvDCF_accuracy and NvDeepSORT tracker configs uses the reID model we installed earlier
 - And as seen in the image we do not have an engine file built. 
 - If you want to build the engine we need to install TAO-toolkit to build the engine from the reID model(.etlt file) otherwise it will run with default values or both NvDCF_accuracy and NvDeepSORT
+<br>
 
 ### 9. Addtional Performance Optimisations
 
@@ -308,9 +310,10 @@ In the STREAMUX section
 
 In this case, the input resolution of my video is 1270x720
 <br>
-If you are streaming from live sources such as RTSP or from USB camera, set live-source=1 in [streammux] group of config file. This enables proper timestamping for live sources creating smoother playback
-<br>
 
+If you are streaming from live sources such as RTSP or from USB camera, set live-source=1 in [streammux] group of config file. This enables proper timestamping for live sources creating smoother playback
+
+<br>
 In the OSD and TILED_DSISPLAY sections 
 
 - Disable them by setting 'enable=0'
@@ -319,15 +322,17 @@ In the OSD and TILED_DSISPLAY sections
 &
 ![TILED](Images/tiled.png)
 
+<br>
 Finally, in the SINK0 and SINK1 sections
 
 - Set 'type=1' to make them fakesinks
 
 ![SINKS](Images/sinks.png)
 
-Disabling OSD means there will be no bounding boxes drawn,
-Choosing fakesinks will get rid of the deeepstream interface and get rid of the proccessed Frames
-As tiling and visual output can take up GPU resource, we can disable them when rendering is not required and we want to run inference on the edge
+- Disabling OSD means there will be no bounding boxes drawn,
+- Choosing fakesinks will get rid of the deeepstream interface and get rid of the proccessed Frames
+- As tiling and visual output can take up GPU resource, we can disable them when rendering is not required and we want to run inference on the edge
+
 ---
 
 
