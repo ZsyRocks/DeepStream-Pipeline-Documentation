@@ -81,6 +81,7 @@ sudo ldconfig
 <br>
 ⬆️⬆️⬆️
 With cuDNN 9.12 installed
+
 <br>
 ![Nvidia Driver Version](Images/nvidia_driver.png) 
 
@@ -115,7 +116,7 @@ Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
 
 (assuming the sample video is under the 'Videos' Folder on your windows machine)
 ```bash
-cp /mnt/c/Users/YourWindowsUser/Videos/myvideo.mp4 /home/YourLinuxUser/myvideo.mp4 
+cp /home/YourLinuxUser/Downloads/myvideo.mp4 /home/YourLinuxUser/myvideo.mp4 
 ```
 
 Create a new DIR to place the reID model to be used for tracking later on
@@ -145,12 +146,18 @@ Instructions:
 
 ### 4. Prepare Custom detector and tracker
 
-Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly 
+Enable permission to copy onnx/engine file into this DIR first
+
+```bash
+sudo chmod -R a+rw /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector
+```
+
+Make sure to replace 'YourLinuxUser' accordingly 
 
 (assuming the custom detector is under the 'Downloads' Folder on your windows machine)
 
 ```bash
-cp /mnt/c/Users/YourWindowsUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
+cp /home/YourLinuxUser/Downloads/best_b4.onnx /opt/nvidia/deepstream/deepstream-7.1/samples/models/Primary_Detector/best_b4.onnx
 ```
 
 Manually build the engine file using trtexec
@@ -224,16 +231,14 @@ You should be able to see the Deepstream interface like this
 LEFT CLICK to zoom in to one video/source and RIGHT CLICK to zoom out
 <br>
 
-[OPTIONAL]<br>
+[OPTIONAL]
 🔻🔻🔻
 
 ```bash
 cp /home/YourLinuxUser/output_tiled.mp4 /mnt/c/Users/YourWindowsUser/Videos/output.mp4
 ```
 
-To save the outtputed video onto your windows machine. 
-(Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly) 
-<br>
+To save the outtputed video onto your windows machine if on WSL (Make sure to change 'YourLinuxUser' and 'YourWindowsUser' accordingly)
 
 ### 8. Trying out multiple tracker configs (IOU, NvSORT, NvDeepSORT and NvDCF) provided by DeepStream
 
@@ -302,9 +307,9 @@ Instruction:
 
 #### Tracker Performance Comparison
 
-The table below summarizes the FPS performance of different trackers tested on the same video source.
+The table below summarizes the FPS performance of different trackers tested on the same video source in **WSL**.
 
-| Trackers          | FPS Range   | Average FPS |
+| **Trackers**         | **FPS Range**   | **Average FPS** |
 |-----------------|----------------|------------------|
 | IOU Tracker      | 13.22 – 16.87   | 13.6            |
 | NvDCF_perf       | 13.28 – 21.93   | 14.1          |

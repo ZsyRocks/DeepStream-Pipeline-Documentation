@@ -14,7 +14,7 @@ nvbuf-memory-type=0
 [source0]
 enable=1
 type=2
-uri=file:///home/shengyu/myvideo.mp4
+uri=file:/home/vates/myvideo.mp4 # Adjust accordingly
 num-sources=1
 gpu-id=0
 cudadec-memtype=0
@@ -22,7 +22,7 @@ cudadec-memtype=0
 [source1]
 enable=1
 type=2
-uri=file:///home/shengyu/myvideo.mp4
+uri=file:/home/vates/myvideo.mp4 # Adjust accordingly
 num-sources=1
 gpu-id=0
 cudadec-memtype=0
@@ -30,7 +30,7 @@ cudadec-memtype=0
 [source2]
 enable=1
 type=2
-uri=file:///home/shengyu/myvideo.mp4
+uri=file:/home/vates/myvideo.mp4 # Adjust accordingly
 num-sources=1
 gpu-id=0
 cudadec-memtype=0
@@ -38,7 +38,7 @@ cudadec-memtype=0
 [source3]
 enable=1
 type=2
-uri=file:///home/shengyu/myvideo.mp4
+uri=file:/home/vates/myvideo.mp4 # Adjust accordingly
 num-sources=1
 gpu-id=0
 cudadec-memtype=0
@@ -46,7 +46,7 @@ cudadec-memtype=0
 [sink0]
 enable=1
 type=2
-sync=1
+sync=0 # sync=1 means it will match the source FPS and process it realtime, but sync=0 means the pipeline will process the video as fast as the GPU can handle
 gpu-id=0
 nvbuf-memory-type=0
 
@@ -56,10 +56,10 @@ type=3
 container=1
 codec=1
 enc-type=0
-sync=1
+sync=0 # sync=1 means it will match the source FPS and process it realtime, but sync=0 means the pipeline will process the video as fast as the GPU can handle
 bitrate=4000000
 profile=0
-output-file=/home/shengyu/output_tiled.mp4
+output-file=/home/vates/output_tiled.mp4
 nvbuf-memory-type=0
 
 [osd]
@@ -77,7 +77,7 @@ nvbuf-memory-type=0
 gpu-id=0
 live-source=0
 batch-size=4
-batched-push-timeout=40000
+batched-push-timeout=10000  # Adjust according to source latency
 width=1920
 height=1080
 enable-padding=0
