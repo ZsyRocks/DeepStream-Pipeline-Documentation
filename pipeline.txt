@@ -78,8 +78,8 @@ gpu-id=0
 live-source=0
 batch-size=4
 batched-push-timeout=10000  # Adjust according to source latency
-width=1920
-height=1080
+width=1270
+height=720
 enable-padding=0
 nvbuf-memory-type=0
 

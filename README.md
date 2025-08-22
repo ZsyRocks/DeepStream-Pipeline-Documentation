@@ -283,7 +283,7 @@ Scroll down to the TRACKER section of the pipeline.txt until you see the highlig
 Instruction:
 - Only UNCOMMENT whichever tracker "ll-config-file" you want to use
 - Leave only one "ll-config-file" UNCOMMENTED at a time and the rest Commented OUT
-- Then run the pipeline and save the video to your local
+- Then run the pipeline
 <br>
 
 ![reID model](Images/reID_model.png)
@@ -292,7 +292,42 @@ Instruction:
 - And as seen in the image we do not have an engine file built. 
 - If you want to build the engine we need to install TAO-toolkit to build the engine from the reID model(.etlt file) otherwise it will run with default values or both NvDCF_accuracy and NvDeepSORT
 
+### 9. Addtional Performance Optimisations
 
+#### Open pipeline.txt, 
+
+```bash
+sudo gedit pipeline.txt
+```
+
+In the STREAMUX section 
+
+- Set the height and width of streammux to the input resolution.
+
+[Image]
+
+In this case, the input resolution of my video is 1270x720
+<br>
+If you are streaming from live sources such as RTSP or from USB camera, set live-source=1 in [streammux] group of config file. This enables proper timestamping for live sources creating smoother playback
+<br>
+
+In the OSD and TILED_DSISPLAY sections 
+
+- Disable them by setting 'enable' to 0
+
+[Image]
+&
+[Image]
+
+Finally, in the SINK0 and SINK1 sections
+
+-  Set type=1 to make them fakesinks
+
+[Image]
+
+Disabling OSD means there will be no bounding boxes drawn,
+Choosing fakesinks will get rid of the deeepstream interface and get rid of the proccessed Frames
+As tiling and visual output can take up GPU resource, we can disable them when rendering is not required and we want to run inference on the edge
 ---
 
 
@@ -302,19 +337,32 @@ Instruction:
 
 ### Notes:
 - My Deepstream was installed from the tar package
-- The ouput video using each tracker can be found inside the Videos folder in this repository
+- __The ouput videos using each tracker can be found inside the Videos folder in this repository__
 
-#### Tracker Performance Comparison
+### Tracker Performance Comparison
 
-The table below summarizes the FPS performance of different trackers tested on the same video source in **WSL**.
+The table below summarizes the FPS performance of different trackers tested on the same video source in both the **Virtual Machine** and **WSL**.
 
-| **Trackers**         | **FPS Range**   | **Average FPS** |
+#### VM
+
+| **Trackers**         | **FPS Range across all sources**   | **Average FPS** |
 |-----------------|----------------|------------------|
-| IOU Tracker      | 13.22 – 16.87   | 13.6            |
-| NvDCF_perf       | 13.28 – 21.93   | 14.1          |
-| NvDCF_max_perf   | 13.27 – 18.57   | 13.9            |
-| NvDCF_accuracy(used default values)   | 13.20 – 15.71   | 13.5           |
-| NvSORT           | 13.29 – 20.12   | 14.0           |
-| NvDeepSORT(used default values)      | 13.23 – 16.96   | 13.7            |
+| IOU Tracker      | 24.59 – 21.90   | 23.32            |
+| NvDCF_perf       | 24.46 – 21.62   | 23.05          |
+| NvDCF_max_perf   | 24.87 – 21.39   | 22.67           |
+| NvDCF_accuracy(used default values)   | 23.46 – 21.06   | 22.15           |
+| NvSORT           | 24.30 – 20.81   | 21.96          |
+| NvDeepSORT(used default values)      | 24.71 – 21.82   | 23.21            |
+
+#### WSL
+
+| **Trackers**         | **FPS Range across all sources**   | **Average FPS** |
+|-----------------|----------------|------------------|
+| IOU Tracker      | 37.4 – 36.27   | 36.86            |
+| NvDCF_perf       | 36.94 - 35.90  | 36.20          |
+| NvDCF_max_perf   | 37.38 – 36.37   | 36.59          |
+| NvDCF_accuracy(used default values)   | 37.30 – 36.55   | 37.04           |
+| NvSORT           | 37.32 – 36.61  | 36.86          |
+| NvDeepSORT(used default values)      | 37.52 – 36.40   | 36.76           |
 
 ---
