@@ -82,7 +82,6 @@ sudo ldconfig
 ⬆️⬆️⬆️
 With cuDNN 9.12 installed
 
-<br>
 ![Nvidia Driver Version](Images/nvidia_driver.png) 
 
 ---
