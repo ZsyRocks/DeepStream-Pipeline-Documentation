@@ -315,6 +315,7 @@ If you are streaming from live sources such as RTSP or from USB camera, set live
 
 <br>
 In the OSD and TILED_DSISPLAY sections 
+<br>
 
 - Disable them by setting 'enable=0'
 
@@ -324,6 +325,7 @@ In the OSD and TILED_DSISPLAY sections
 
 <br>
 Finally, in the SINK0 and SINK1 sections
+<br>
 
 - Set 'type=1' to make them fakesinks
 
@@ -336,7 +338,7 @@ Finally, in the SINK0 and SINK1 sections
 ---
 
 
-## 📚 Resources and notes
+## 📚 Resources and Performance Comparison
 
 - [NVIDIA DeepStream SDK Documentation](https://docs.nvidia.com/metropolis/deepstream/dev-guide/index.html)
 
