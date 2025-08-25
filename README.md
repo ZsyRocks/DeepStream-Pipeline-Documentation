@@ -111,9 +111,10 @@ cd /opt/nvidia/deepstream/deepstream-7.1
 
 ### 2. Prepare sample video and reID model(for some tracking configs)
 
-Make sure to replace 'YourWindowsUser' and 'YourLinuxUser' accordingly
+Make sure to replace 'YourLinuxUser' accordingly
 
 (assuming the sample video is under the 'Videos' Folder on your windows machine)
+
 ```bash
 cp /home/YourLinuxUser/Downloads/myvideo.mp4 /home/YourLinuxUser/myvideo.mp4 
 ```
